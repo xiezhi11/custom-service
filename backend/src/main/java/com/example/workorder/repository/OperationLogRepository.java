@@ -1,0 +1,13 @@
+package com.example.workorder.repository;
+
+import com.example.workorder.entity.OperationLog;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface OperationLogRepository extends JpaRepository<OperationLog, Long> {
+
+    List<OperationLog> findByWorkOrderIdOrderByOperationTimeAsc(Long workOrderId);
+}
